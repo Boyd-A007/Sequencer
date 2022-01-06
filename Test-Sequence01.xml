@@ -1,0 +1,20 @@
+<sequence name="Test Sequence Alpha" version="1.0">
+    <action name="Check Disk" reboot="false" wait="true" critical="false">
+        <conditions/>
+        <filepath>c:\windows\system32\chkdsk.exe</filepath>
+        <arguments>c: /scan</arguments>
+        <workingdir>c:\windows\system32</workingdir>
+    </action>
+    <action name="SFC Scan" reboot="true" wait="true" critical="false">
+        <conditions/>
+        <filepath>c:\windows\system32\sfc.exe</filepath>
+        <arguments>/scannow</arguments>
+        <workingdir>c:\windows\system32</workingdir>
+    </action>
+    <action name="DISM Check" reboot="false" wait="true" critical="false">
+        <conditions/>
+        <filepath>c:\windows\system32\dism.exe</filepath>
+        <arguments>/online /cleanup-image /scanhealth</arguments>
+        <workingdir>c:\windows\system32</workingdir>
+    </action>
+</sequence>
